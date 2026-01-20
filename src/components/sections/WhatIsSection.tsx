@@ -36,12 +36,12 @@ const WhatIsSection: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* WhatsApp Group Image */}
-                    <div className="flex justify-center lg:justify-end">
+                    {/* WhatsApp Group Image - Mobile only */}
+                    <div className="flex justify-center lg:hidden">
                         <img
                             src={whatsappGroupImage}
                             alt="Grupo WhatsApp Fórmula do Boi"
-                            className="max-w-xs md:max-w-sm lg:max-w-md h-auto object-contain"
+                            className="max-w-xs md:max-w-sm h-auto object-contain"
                         />
                     </div>
                 </div>
