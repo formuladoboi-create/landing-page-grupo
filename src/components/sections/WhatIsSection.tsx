@@ -1,5 +1,6 @@
 import React from 'react';
 import CTAButton from '../ui/CTAButton';
+import whatsappGroupImage from '../../assets/whatsapp-group.png';
 
 const WhatIsSection: React.FC = () => {
     return (
@@ -34,6 +35,16 @@ const WhatIsSection: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* WhatsApp Group Image */}
+                <div className="flex justify-center mt-12">
+                    <img
+                        src={whatsappGroupImage}
+                        alt="Grupo WhatsApp Fórmula do Boi"
+                        className="max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
+                    />
+                </div>
+
                 <div className="mt-16">
                     <CTAButton />
                 </div>
