@@ -42,6 +42,7 @@ const LeadForm: React.FC = () => {
             setSelectedCity('');
         }
     }, [selectedUf]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         if (selectedCity && selectedUf) {
@@ -51,10 +52,46 @@ const LeadForm: React.FC = () => {
         }
     }, [selectedCity, selectedUf]);
 
-    const handleFormSubmit = (e: React.FormEvent) => {
+    const handleFormSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Navigate to thank you page after form submission
-        navigate('/obrigado-whats');
+        setIsSubmitting(true);
+
+        try {
+            // Google Apps Script Web App URL
+            const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
+            if (GOOGLE_SCRIPT_URL) {
+                const payload = {
+                    nome: formData.nome,
+                    whatsapp: formData.whatsapp,
+                    instagram: formData.instagram,
+                    nomeFazenda: formData.nomeFazenda,
+                    estado: selectedUf,
+                    cidade: selectedCity,
+                    interesse: formData.interesse,
+                    buscaComprar: formData.buscaComprar,
+                    quantidadeAnimais: formData.quantidadeAnimais
+                };
+
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+            }
+
+            // Navigate to thank you page after form submission
+            navigate('/obrigado-whats');
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            // Still navigate even if there's an error
+            navigate('/obrigado-whats');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -219,10 +256,11 @@ const LeadForm: React.FC = () => {
                     </select>
                 </div>
                 <button
-                    className="w-full gold-gradient text-white font-bold text-xs py-5 md:py-6 rounded-xl tracking-[0.2em] hover:brightness-110 transition-all transform hover:-translate-y-1 mt-6 shadow-xl shadow-primary/20 uppercase"
+                    className="w-full gold-gradient text-white font-bold text-xs py-5 md:py-6 rounded-xl tracking-[0.2em] hover:brightness-110 transition-all transform hover:-translate-y-1 mt-6 shadow-xl shadow-primary/20 uppercase disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                     type="submit"
+                    disabled={isSubmitting}
                 >
-                    QUERO ACESSAR O GRUPO DE VENDAS
+                    {isSubmitting ? 'ENVIANDO...' : 'QUERO ACESSAR O GRUPO DE VENDAS'}
                 </button>
             </form>
             <p className="text-[9px] text-center text-zinc-400 mt-8 uppercase tracking-[0.3em] font-medium">Acesso restrito para pecuaristas selecionados</p>
