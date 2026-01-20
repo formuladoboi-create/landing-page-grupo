@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
                 <div className="space-y-8 animate-in fade-in">
                     <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-bold tracking-[0.2em] uppercase">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                        Elite Nelore PO
+                        GENETICA PO
                     </div>
                     <h1 className="font-sans text-3xl md:text-5xl font-black leading-tight tracking-[0.15em] uppercase text-black">
                         ELEVE O PADRÃO <span className="text-gold-gradient">GENÉTICO</span> DO SEU NELORE PO.

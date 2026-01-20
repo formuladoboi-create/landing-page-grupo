@@ -57,7 +57,7 @@ const LeadForm: React.FC = () => {
 
     return (
         <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-black/10 shadow-2xl relative z-10">
-            <h3 className="font-bold text-xl mb-8 tracking-widest uppercase text-black">Acesse a Elite</h3>
+            <h3 className="font-bold text-xl mb-8 tracking-widest uppercase text-black">ACESSE O GRUPO</h3>
             <form onSubmit={handleFormSubmit} className="space-y-6">
                 {/* 1. Nome Completo */}
                 <div className="space-y-2">
