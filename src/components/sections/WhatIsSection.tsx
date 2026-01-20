@@ -15,9 +15,10 @@ const WhatIsSection: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="flex justify-center">
-                    {/* O que é */}
-                    <div className="bg-white p-8 md:p-12 rounded-3xl border border-primary/10 shadow-xl relative overflow-hidden group hover:border-primary/30 transition-all duration-500 max-w-2xl w-full">
+                {/* Content + Image Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    {/* O que é - Card */}
+                    <div className="bg-white p-8 md:p-12 rounded-3xl border border-primary/10 shadow-xl relative overflow-hidden group hover:border-primary/30 transition-all duration-500">
                         <div className="absolute top-0 left-0 w-2 h-full bg-primary/20 group-hover:bg-primary transition-colors duration-500"></div>
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
@@ -34,15 +35,15 @@ const WhatIsSection: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* WhatsApp Group Image */}
-                <div className="flex justify-center mt-12">
-                    <img
-                        src={whatsappGroupImage}
-                        alt="Grupo WhatsApp Fórmula do Boi"
-                        className="max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
-                    />
+                    {/* WhatsApp Group Image */}
+                    <div className="flex justify-center lg:justify-end">
+                        <img
+                            src={whatsappGroupImage}
+                            alt="Grupo WhatsApp Fórmula do Boi"
+                            className="max-w-xs md:max-w-sm lg:max-w-md h-auto object-contain"
+                        />
+                    </div>
                 </div>
 
                 <div className="mt-16">
