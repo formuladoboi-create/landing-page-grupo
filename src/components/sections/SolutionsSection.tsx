@@ -8,9 +8,9 @@ const challenges = [
 ];
 
 const solutions = [
-    { icon: 'public', title: 'Alcance Nacional Imediato', desc: 'Conectamos sua fazenda aos maiores investidores de Nelore PO do Brasil em segundos.' },
-    { icon: 'payments', title: 'Valorização Real do Ativo', desc: 'Nossa plataforma educa o comprador sobre a sua linhagem, garantindo o preço justo pela sua genética.' },
-    { icon: 'flash_on', title: 'Negociação Destravada', desc: 'Agilidade total do anúncio ao fechamento. Menos papelada, mais liquidez para o seu caixa.' }
+    { icon: 'storefront', title: 'Oportunidades em um só lugar', desc: 'Acesso direto a animais disponíveis fora do leilão, com comunicação objetiva e foco em negócio.' },
+    { icon: 'credit_score', title: 'Compra Parcelada e Descomplicada', desc: 'Após o cadastro, você pode avançar com condições facilitadas para fechar com mais previsibilidade.' },
+    { icon: 'local_shipping', title: 'Frete Compartilhado para Baratear', desc: 'Organização de logística e rotas compartilhadas para diluir custo e aumentar eficiência na entrega.' }
 ];
 
 const SolutionsSection: React.FC = () => {
@@ -43,7 +43,7 @@ const SolutionsSection: React.FC = () => {
                     </div>
 
                     <div className="space-y-8">
-                        <h3 className="font-bold text-sm text-primary tracking-[0.3em] uppercase border-l-4 border-primary/50 pl-6">A Solução Fórmula do Boi</h3>
+                        <h3 className="font-bold text-sm text-primary tracking-[0.3em] uppercase border-l-4 border-primary/50 pl-6">Como o Fórmula do Boi Ajuda o Comprador</h3>
                         <div className="space-y-6">
                             {solutions.map((item, idx) => (
                                 <div key={idx} className="bg-white p-8 rounded-2xl border border-primary/20 shadow-xl relative overflow-hidden group hover:scale-[1.02] transition-transform">
@@ -62,7 +62,11 @@ const SolutionsSection: React.FC = () => {
                     </div>
                 </div>
                 <div className="mt-20">
-                    <CTAButton />
+                    <div className="text-center">
+                        <a href="#formulario" className="inline-block gold-gradient text-white font-bold text-xs md:text-sm py-4 px-8 md:px-10 rounded-xl tracking-[0.2em] hover:brightness-110 transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/20 uppercase">
+                            Quero Me Cadastrar Para Comprar
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
