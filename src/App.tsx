@@ -1,24 +1,17 @@
 import React from 'react';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import HeroSection from './components/sections/HeroSection';
-import SolutionsSection from './components/sections/SolutionsSection';
-import PillarsSection from './components/sections/PillarsSection';
-
-import WhatIsSection from './components/sections/WhatIsSection';
-import FAQSection from './components/sections/FAQSection';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ThankYouPage from './pages/ThankYouPage';
 
 const App: React.FC = () => {
     return (
-        <div className="min-h-screen">
-            <Header />
-            <HeroSection />
-            <WhatIsSection />
-            <SolutionsSection />
-            <PillarsSection />
-            <FAQSection />
-            <Footer />
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Navigate to="/grupo-whats" replace />} />
+                <Route path="/grupo-whats" element={<HomePage />} />
+                <Route path="/obrigado-whats" element={<ThankYouPage />} />
+            </Routes>
+        </BrowserRouter>
     );
 };
 

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FormData } from '../../types';
 import { getUFs, getCitiesByUF, IBGEUF, IBGECity } from '../../services/ibgeService';
 
 const LeadForm: React.FC = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState<FormData>({
         nome: '',
         nomeFazenda: '',
+        email: '',
         whatsapp: '',
         local: '',
         interesse: 'Selecione uma opção'
@@ -47,13 +51,15 @@ const LeadForm: React.FC = () => {
 
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert(`Obrigado, ${formData.nome}! Nossa equipe de elite entrará em contato em breve.`);
+        // Navigate to thank you page after form submission
+        navigate('/obrigado-whats');
     };
 
     return (
         <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-black/10 shadow-2xl relative z-10">
             <h3 className="font-bold text-xl mb-8 tracking-widest uppercase text-black">Acesse a Elite</h3>
             <form onSubmit={handleFormSubmit} className="space-y-6">
+                {/* 1. Nome Completo */}
                 <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Nome Completo</label>
                     <input
@@ -65,6 +71,52 @@ const LeadForm: React.FC = () => {
                         type="text"
                     />
                 </div>
+
+                {/* 2. Celular (WhatsApp) */}
+                <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Celular</label>
+                    <input
+                        required
+                        value={formData.whatsapp}
+                        onChange={e => {
+                            // Remove all non-numeric characters
+                            const numericValue = e.target.value.replace(/\D/g, '');
+                            // Limit to 11 digits
+                            const limitedValue = numericValue.slice(0, 11);
+                            // Apply mask (DD) 9XXXX-XXXX
+                            let maskedValue = limitedValue;
+                            if (limitedValue.length > 0) {
+                                maskedValue = `(${limitedValue.slice(0, 2)}`;
+                                if (limitedValue.length > 2) {
+                                    maskedValue += `) ${limitedValue.slice(2, 7)}`;
+                                }
+                                if (limitedValue.length > 7) {
+                                    maskedValue += `-${limitedValue.slice(7, 11)}`;
+                                }
+                            }
+                            setFormData({ ...formData, whatsapp: maskedValue });
+                        }}
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black placeholder-zinc-400 text-sm"
+                        placeholder="(00) 00000-0000"
+                        type="tel"
+                        maxLength={16}
+                    />
+                </div>
+
+                {/* 3. E-mail */}
+                <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">E-mail</label>
+                    <input
+                        required
+                        value={formData.email}
+                        onChange={e => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black placeholder-zinc-400 transition-all text-sm"
+                        placeholder="seuemail@exemplo.com"
+                        type="email"
+                    />
+                </div>
+
+                {/* 4. Nome da Fazenda */}
                 <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Nome da Fazenda</label>
                     <input
@@ -79,33 +131,24 @@ const LeadForm: React.FC = () => {
                         type="text"
                     />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">WhatsApp</label>
-                        <input
-                            required
-                            value={formData.whatsapp}
-                            onChange={e => setFormData({ ...formData, whatsapp: e.target.value })}
-                            className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black placeholder-zinc-400 text-sm"
-                            placeholder="(00) 00000-0000"
-                            type="tel"
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Estado</label>
-                        <select
-                            required
-                            value={selectedUf}
-                            onChange={e => setSelectedUf(e.target.value)}
-                            className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black text-sm appearance-none"
-                        >
-                            <option value="" disabled>UF</option>
-                            {ufs.map(uf => (
-                                <option key={uf.id} value={uf.sigla}>{uf.nome}</option>
-                            ))}
-                        </select>
-                    </div>
+
+                {/* 5. Estado */}
+                <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Estado</label>
+                    <select
+                        required
+                        value={selectedUf}
+                        onChange={e => setSelectedUf(e.target.value)}
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black text-sm appearance-none"
+                    >
+                        <option value="" disabled>Selecione o estado</option>
+                        {ufs.map(uf => (
+                            <option key={uf.id} value={uf.sigla}>{uf.nome}</option>
+                        ))}
+                    </select>
                 </div>
+
+                {/* 6. Cidade */}
                 <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Cidade</label>
                     <select
@@ -123,6 +166,8 @@ const LeadForm: React.FC = () => {
                         ))}
                     </select>
                 </div>
+
+                {/* 7. Interesse */}
                 <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Interesse Principal</label>
                     <select
