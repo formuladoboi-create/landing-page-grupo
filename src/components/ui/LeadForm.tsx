@@ -61,6 +61,17 @@ const LeadForm: React.FC = () => {
             const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 
             if (GOOGLE_SCRIPT_URL) {
+                // Capture UTM parameters from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const utmData = {
+                    page: window.location.pathname,
+                    source: urlParams.get('utm_source') || '',
+                    medium: urlParams.get('utm_medium') || '',
+                    campaign: urlParams.get('utm_campaign') || '',
+                    content: urlParams.get('utm_content') || '',
+                    term: urlParams.get('utm_term') || ''
+                };
+
                 const payload = {
                     nome: formData.nome,
                     whatsapp: formData.whatsapp,
@@ -70,7 +81,9 @@ const LeadForm: React.FC = () => {
                     cidade: selectedCity,
                     interesse: formData.interesse,
                     buscaComprar: formData.buscaComprar,
-                    quantidadeAnimais: formData.quantidadeAnimais
+                    quantidadeAnimais: formData.quantidadeAnimais,
+                    // UTM tracking data
+                    ...utmData
                 };
 
                 await fetch(GOOGLE_SCRIPT_URL, {

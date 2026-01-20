@@ -40,7 +40,7 @@ function doPost(e) {
         }
 
         // Append row with data
-        // Columns: A=Data, B=Hora, C=Nome, D=Celular, E=Instagram, F=Fazenda, G=Estado, H=Cidade, I=Interesse, J=BuscaComprar, K=QtdAnimais
+        // Columns: A=Data, B=Hora, C=Nome, D=Celular, E=Instagram, F=Fazenda, G=Estado, H=Cidade, I=Interesse, J=BuscaComprar, K=QtdAnimais, L=Page, M=Source, N=Medium, O=Campaign, P=Content, Q=Term
         sheet.appendRow([
             brazilTime,              // A - Data
             brazilHour,              // B - Hora
@@ -52,7 +52,13 @@ function doPost(e) {
             data.cidade,             // H - Cidade
             data.interesse,          // I - Interesse
             data.buscaComprar,       // J - O que busca comprar
-            data.quantidadeAnimais   // K - Quantidade de animais
+            data.quantidadeAnimais,  // K - Quantidade de animais
+            data.page || '',         // L - Page
+            data.source || '',       // M - Source (utm_source)
+            data.medium || '',       // N - Medium (utm_medium)
+            data.campaign || '',     // O - Campaign (utm_campaign)
+            data.content || '',      // P - Content (utm_content)
+            data.term || ''          // Q - Term (utm_term)
         ]);
 
         return ContentService.createTextOutput(JSON.stringify({
