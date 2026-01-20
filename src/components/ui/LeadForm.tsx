@@ -9,7 +9,7 @@ const LeadForm: React.FC = () => {
     const [formData, setFormData] = useState<FormData>({
         nome: '',
         nomeFazenda: '',
-        email: '',
+        instagram: '',
         whatsapp: '',
         local: '',
         interesse: 'Selecione uma opção'
@@ -103,16 +103,15 @@ const LeadForm: React.FC = () => {
                     />
                 </div>
 
-                {/* 3. E-mail */}
+                {/* 3. Instagram (opcional) */}
                 <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">E-mail</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Instagram <span className="text-zinc-400">(opcional)</span></label>
                     <input
-                        required
-                        value={formData.email}
-                        onChange={e => setFormData({ ...formData, email: e.target.value })}
+                        value={formData.instagram}
+                        onChange={e => setFormData({ ...formData, instagram: e.target.value })}
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black placeholder-zinc-400 transition-all text-sm"
-                        placeholder="seuemail@exemplo.com"
-                        type="email"
+                        placeholder="@seuinstagram"
+                        type="text"
                     />
                 </div>
 
@@ -169,16 +168,18 @@ const LeadForm: React.FC = () => {
 
                 {/* 7. Interesse */}
                 <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Interesse Principal</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Interesse</label>
                     <select
+                        required
                         value={formData.interesse}
                         onChange={e => setFormData({ ...formData, interesse: e.target.value })}
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black text-sm appearance-none"
                     >
                         <option disabled>Selecione uma opção</option>
-                        <option>Quero Comprar Genética</option>
-                        <option>Quero Vender Plantel</option>
-                        <option>Ambas as Opções</option>
+                        <option>Já sou criador renomado, quero comprar ou vender</option>
+                        <option>Já sou criador iniciante, quero comprar e vender</option>
+                        <option>Estou iniciando e quero entender mais sobre gado PO</option>
+                        <option>Crio gado comercial e quero começar no PO</option>
                     </select>
                 </div>
                 <button

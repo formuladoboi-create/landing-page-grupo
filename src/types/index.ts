@@ -6,7 +6,7 @@ export interface ChatMessage {
 export interface FormData {
     nome: string;
     nomeFazenda: string;
-    email: string;
+    instagram: string;
     whatsapp: string;
     local: string;
     interesse: string;
