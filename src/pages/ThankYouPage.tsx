@@ -6,7 +6,7 @@ const ThankYouPage: React.FC = () => {
     const groupLink = "https://chat.whatsapp.com/JYxJPWfkoHHLZfosHlywN9";
 
     // Countdown state
-    const [countdown, setCountdown] = useState(8);
+    const [countdown, setCountdown] = useState(4);
 
     // Auto-redirect after countdown
     useEffect(() => {
