@@ -10,4 +10,5 @@ export interface FormData {
     whatsapp: string;
     local: string;
     interesse: string;
+    buscaComprar: string;
 }

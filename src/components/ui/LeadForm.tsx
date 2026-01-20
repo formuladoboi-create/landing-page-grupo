@@ -12,7 +12,8 @@ const LeadForm: React.FC = () => {
         instagram: '',
         whatsapp: '',
         local: '',
-        interesse: 'Selecione uma opção'
+        interesse: 'Selecione uma opção',
+        buscaComprar: 'Selecione uma opção'
     });
 
     const [ufs, setUfs] = useState<IBGEUF[]>([]);
@@ -180,6 +181,23 @@ const LeadForm: React.FC = () => {
                         <option>Já sou criador iniciante, quero comprar e vender</option>
                         <option>Estou iniciando e quero entender mais sobre gado PO</option>
                         <option>Crio gado comercial e quero começar no PO</option>
+                    </select>
+                </div>
+
+                {/* 8. O que busca comprar */}
+                <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">O que você busca comprar?</label>
+                    <select
+                        required
+                        value={formData.buscaComprar}
+                        onChange={e => setFormData({ ...formData, buscaComprar: e.target.value })}
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black text-sm appearance-none"
+                    >
+                        <option disabled>Selecione uma opção</option>
+                        <option>Embriões</option>
+                        <option>Sêmen</option>
+                        <option>Touro</option>
+                        <option>Matrizes</option>
                     </select>
                 </div>
                 <button
