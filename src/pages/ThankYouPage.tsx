@@ -2,8 +2,8 @@ import React from 'react';
 import Logo from '../components/ui/Logo';
 
 const ThankYouPage: React.FC = () => {
-    // Placeholder link - user will provide the actual link later
-    const groupLink = "#";
+    // WhatsApp group link
+    const groupLink = "https://chat.whatsapp.com/JYxJPWfkoHHLZfosHlywN9";
 
     return (
         <div className="min-h-screen bg-white flex flex-col">
