@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../components/ui/Logo';
 
 const ThankYouPage: React.FC = () => {
     // WhatsApp group link
     const groupLink = "https://chat.whatsapp.com/JYxJPWfkoHHLZfosHlywN9";
+
+    // Countdown state
+    const [countdown, setCountdown] = useState(8);
+
+    // Auto-redirect after countdown
+    useEffect(() => {
+        if (countdown <= 0) {
+            window.location.href = groupLink;
+            return;
+        }
+
+        const timer = setInterval(() => {
+            setCountdown(prev => prev - 1);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [countdown]);
 
     return (
         <div className="min-h-screen bg-white flex flex-col">
@@ -31,6 +48,16 @@ const ThankYouPage: React.FC = () => {
                     <p className="text-base md:text-lg text-zinc-500 font-normal leading-relaxed max-w-xl mx-auto">
                         Você já deu o primeiro passo. Agora, entre no nosso grupo para receber orientações, atualizações e acessar o ecossistema de relacionamento e negócios.
                     </p>
+
+                    {/* Countdown Timer */}
+                    <div className="py-4">
+                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 border-4 border-primary">
+                            <span className="text-3xl font-black text-primary">{countdown}</span>
+                        </div>
+                        <p className="text-sm text-zinc-500 mt-3">
+                            Redirecionando em <span className="font-bold text-primary">{countdown}</span> segundos...
+                        </p>
+                    </div>
 
                     {/* CTA Button */}
                     <div className="pt-4">
@@ -60,3 +87,4 @@ const ThankYouPage: React.FC = () => {
 };
 
 export default ThankYouPage;
+
