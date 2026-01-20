@@ -35,7 +35,7 @@ const FAQSection: React.FC = () => {
             items: [
                 {
                     question: "O que é o Fórmula do Boi?",
-                    answer: "É uma comunidade fechada e curada para criadores de Nelore PO que desejam estruturar um canal próprio de comercialização, fortalecer relacionamento no setor e vender fora do leilão com mais previsibilidade."
+                    answer: "É uma comunidade fechada e curada para compradores de Nelore PO que desejam melhorar a genética de seu plantel, fortalecer relacionamento no setor, vender e comprar fora do leilão com mais previsibilidade."
                 },
                 {
                     question: "O Fórmula do Boi é uma corretora ou assessoria?",
