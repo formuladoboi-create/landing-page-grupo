@@ -13,7 +13,8 @@ const LeadForm: React.FC = () => {
         whatsapp: '',
         local: '',
         interesse: 'Selecione uma opção',
-        buscaComprar: 'Selecione uma opção'
+        buscaComprar: 'Selecione uma opção',
+        quantidadeAnimais: 'Selecione uma opção'
     });
 
     const [ufs, setUfs] = useState<IBGEUF[]>([]);
@@ -198,6 +199,23 @@ const LeadForm: React.FC = () => {
                         <option>Sêmen</option>
                         <option>Touro</option>
                         <option>Matrizes</option>
+                    </select>
+                </div>
+
+                {/* 9. Quantidade de animais */}
+                <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Quantidade de animais na fazenda</label>
+                    <select
+                        required
+                        value={formData.quantidadeAnimais}
+                        onChange={e => setFormData({ ...formData, quantidadeAnimais: e.target.value })}
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black text-sm appearance-none"
+                    >
+                        <option disabled>Selecione uma opção</option>
+                        <option>0 a 100</option>
+                        <option>100 a 300</option>
+                        <option>300 a 500</option>
+                        <option>500+</option>
                     </select>
                 </div>
                 <button

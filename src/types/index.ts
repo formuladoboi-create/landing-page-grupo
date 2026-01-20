@@ -11,4 +11,5 @@ export interface FormData {
     local: string;
     interesse: string;
     buscaComprar: string;
+    quantidadeAnimais: string;
 }
