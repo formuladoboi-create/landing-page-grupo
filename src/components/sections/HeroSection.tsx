@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
                         GENETICA PO
                     </div>
                     <h1 className="font-sans text-3xl md:text-5xl font-black leading-tight tracking-[0.15em] uppercase text-black">
-                        ELEVE O PADRÃO <span className="text-gold-gradient">GENÉTICO</span> DO SEU NELORE PO.
+                        Eleve o padrão do seu rebanho com <span className="text-gold-gradient">GENÉTICA</span>
                     </h1>
                     <p className="text-base md:text-lg text-zinc-500 font-normal leading-relaxed max-w-xl">
                         Processo, rede e suporte para dar previsibilidade ao melhoramento e à valorização do seu plantel.
