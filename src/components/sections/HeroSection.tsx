@@ -14,10 +14,10 @@ const HeroSection: React.FC = () => {
                         Elite Nelore PO
                     </div>
                     <h1 className="font-sans text-3xl md:text-5xl font-black leading-tight tracking-[0.15em] uppercase text-black">
-                        A elite do <span className="text-gold-gradient">Nelore PO vendendo direto</span> com processo, presença e relacionamento.
+                        ELEVE O PADRÃO <span className="text-gold-gradient">GENÉTICO</span> DO SEU NELORE PO.
                     </h1>
                     <p className="text-base md:text-lg text-zinc-500 font-normal leading-relaxed max-w-xl">
-                        Venda direta, sem intermediários. Conectamos os maiores criadores do Brasil através de um ecossistema exclusivo e controlado.
+                        Processo, rede e suporte para dar previsibilidade ao melhoramento e à valorização do seu plantel.
                     </p>
 
                 </div>
