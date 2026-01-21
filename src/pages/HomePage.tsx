@@ -3,7 +3,6 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import HeroSection from '../components/sections/HeroSection';
 import SolutionsSection from '../components/sections/SolutionsSection';
-import PillarsSection from '../components/sections/PillarsSection';
 import WhatIsSection from '../components/sections/WhatIsSection';
 import BreedsSection from '../components/sections/BreedsSection';
 import FAQSection from '../components/sections/FAQSection';
@@ -16,7 +15,6 @@ const HomePage: React.FC = () => {
             <WhatIsSection />
             <BreedsSection />
             <SolutionsSection />
-            <PillarsSection />
             <FAQSection />
             <Footer />
         </div>
