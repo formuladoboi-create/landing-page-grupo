@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const videos = [
     { id: 'UnpREOe1s7c', title: 'Nelore PO' },
-    { id: 'dABi1E-3oA4', title: 'Genética de Elite' }
+    { id: 'dABi1E-3oA4', title: 'Genética de Elite' },
+    { id: 'DiA_dqQGVJQ', title: 'Raças de Excelência' }
 ];
 
 const BreedsSection: React.FC = () => {
