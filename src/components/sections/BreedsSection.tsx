@@ -99,6 +99,66 @@ const BreedsSection: React.FC = () => {
                         />
                     ))}
                 </div>
+
+                {/* O que ofertamos no grupo */}
+                <div className="mt-20">
+                    <div className="text-center mb-12">
+                        <h3 className="text-2xl md:text-3xl font-black uppercase tracking-wider text-black mb-4">
+                            O que <span className="text-gold-gradient">Ofertamos</span> no Grupo?
+                        </h3>
+                        <div className="w-20 h-1 gold-gradient mx-auto"></div>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                        {/* Sêmen */}
+                        <div className="group flex flex-col items-center p-6 bg-zinc-50 rounded-2xl border border-zinc-200 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                <span className="material-symbols-outlined text-3xl md:text-4xl text-white">
+                                    science
+                                </span>
+                            </div>
+                            <span className="text-lg md:text-xl font-bold text-zinc-800 group-hover:text-primary transition-colors">
+                                Sêmen
+                            </span>
+                        </div>
+
+                        {/* Embrião */}
+                        <div className="group flex flex-col items-center p-6 bg-zinc-50 rounded-2xl border border-zinc-200 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                <span className="material-symbols-outlined text-3xl md:text-4xl text-white">
+                                    egg_alt
+                                </span>
+                            </div>
+                            <span className="text-lg md:text-xl font-bold text-zinc-800 group-hover:text-primary transition-colors">
+                                Embrião
+                            </span>
+                        </div>
+
+                        {/* Touros */}
+                        <div className="group flex flex-col items-center p-6 bg-zinc-50 rounded-2xl border border-zinc-200 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                <span className="material-symbols-outlined text-3xl md:text-4xl text-white">
+                                    pets
+                                </span>
+                            </div>
+                            <span className="text-lg md:text-xl font-bold text-zinc-800 group-hover:text-primary transition-colors">
+                                Touros
+                            </span>
+                        </div>
+
+                        {/* Matrizes */}
+                        <div className="group flex flex-col items-center p-6 bg-zinc-50 rounded-2xl border border-zinc-200 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                <span className="material-symbols-outlined text-3xl md:text-4xl text-white">
+                                    favorite
+                                </span>
+                            </div>
+                            <span className="text-lg md:text-xl font-bold text-zinc-800 group-hover:text-primary transition-colors">
+                                Matrizes
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );
