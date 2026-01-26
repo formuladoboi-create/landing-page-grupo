@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ScrollReveal } from '../../hooks/useScrollReveal';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -149,41 +150,47 @@ const FAQSection: React.FC = () => {
     return (
         <section className="py-24 px-6 md:px-12 bg-white border-t border-black/5">
             <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-wider text-black mb-4">
-                        Perguntas Frequentes
-                    </h2>
-                    <p className="text-zinc-500">
-                        Tire suas dúvidas sobre o funcionamento do grupo.
-                    </p>
-                </div>
+                <ScrollReveal>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-black uppercase tracking-wider text-black mb-4">
+                            Perguntas Frequentes
+                        </h2>
+                        <p className="text-zinc-500">
+                            Tire suas dúvidas sobre o funcionamento do grupo.
+                        </p>
+                    </div>
+                </ScrollReveal>
 
                 <div className="grid gap-8">
                     {faqData.map((section, idx) => (
-                        <div key={idx} className="bg-zinc-50 rounded-3xl p-8 md:p-10 border border-black/5">
-                            <h3 className="text-lg font-black uppercase tracking-[0.2em] text-zinc-400 mb-6 border-b-2 border-primary/20 pb-4 inline-block">
-                                {section.category}
-                            </h3>
-                            <div>
-                                {section.items.map((item, itemIdx) => (
-                                    <FAQItem key={itemIdx} question={item.question} answer={item.answer} />
-                                ))}
+                        <ScrollReveal key={idx} delay={0.1 * (idx + 1)}>
+                            <div className="bg-zinc-50 rounded-3xl p-8 md:p-10 border border-black/5">
+                                <h3 className="text-lg font-black uppercase tracking-[0.2em] text-zinc-400 mb-6 border-b-2 border-primary/20 pb-4 inline-block">
+                                    {section.category}
+                                </h3>
+                                <div>
+                                    {section.items.map((item, itemIdx) => (
+                                        <FAQItem key={itemIdx} question={item.question} answer={item.answer} />
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+                        </ScrollReveal>
                     ))}
                 </div>
 
-                <div className="mt-16 text-center space-y-4">
-                    <p className="text-zinc-600 font-medium">
-                        Ainda com dúvidas? Entre no grupo e veja como as oportunidades são publicadas na prática.
-                    </p>
-                    <a
-                        href="#formulario"
-                        className="inline-block gold-gradient text-white font-bold text-xs md:text-sm py-4 px-8 md:px-10 rounded-xl tracking-[0.2em] hover:brightness-110 transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/20 uppercase"
-                    >
-                        Entrar no Grupo Agora
-                    </a>
-                </div>
+                <ScrollReveal delay={0.8}>
+                    <div className="mt-16 text-center space-y-4">
+                        <p className="text-zinc-600 font-medium">
+                            Ainda com dúvidas? Entre no grupo e veja como as oportunidades são publicadas na prática.
+                        </p>
+                        <a
+                            href="#formulario"
+                            className="inline-block gold-gradient text-white font-bold text-xs md:text-sm py-4 px-8 md:px-10 rounded-xl tracking-[0.2em] hover:brightness-110 transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/20 uppercase"
+                        >
+                            Entrar no Grupo Agora
+                        </a>
+                    </div>
+                </ScrollReveal>
             </div>
         </section>
     );

@@ -71,3 +71,89 @@ html {
 .slide-in-from-right-10 {
   animation-name: slide-in-from-right;
 }
+
+/* Scroll reveal animations */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Initial hidden state */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for children */
+.scroll-reveal.stagger-1 {
+  transition-delay: 0.1s;
+}
+
+.scroll-reveal.stagger-2 {
+  transition-delay: 0.2s;
+}
+
+.scroll-reveal.stagger-3 {
+  transition-delay: 0.3s;
+}
+
+.scroll-reveal.stagger-4 {
+  transition-delay: 0.4s;
+}
+
+.scroll-reveal.stagger-5 {
+  transition-delay: 0.5s;
+}
+
+.scroll-reveal.stagger-6 {
+  transition-delay: 0.6s;
+}
+
+/* Scale variant */
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Fade only variant */
+.scroll-reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-fade.revealed {
+  opacity: 1;
+}
