@@ -100,6 +100,35 @@ const BreedsSection: React.FC = () => {
                     ))}
                 </div>
 
+                {/* Raças - Nelore Padrão e Pintado */}
+                <div className="mt-16">
+                    <div className="grid grid-cols-2 gap-6 max-w-xl mx-auto">
+                        {/* Nelore Padrão */}
+                        <div className="group flex flex-col items-center p-6 bg-zinc-50 rounded-2xl border border-zinc-200 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                <span className="material-symbols-outlined text-3xl md:text-4xl text-white">
+                                    verified
+                                </span>
+                            </div>
+                            <span className="text-lg md:text-xl font-bold text-zinc-800 group-hover:text-primary transition-colors text-center">
+                                Nelore Padrão
+                            </span>
+                        </div>
+
+                        {/* Nelore Pintado */}
+                        <div className="group flex flex-col items-center p-6 bg-zinc-50 rounded-2xl border border-zinc-200 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                <span className="material-symbols-outlined text-3xl md:text-4xl text-white">
+                                    palette
+                                </span>
+                            </div>
+                            <span className="text-lg md:text-xl font-bold text-zinc-800 group-hover:text-primary transition-colors text-center">
+                                Nelore Pintado
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
                 {/* O que ofertamos no grupo */}
                 <div className="mt-20">
                     <div className="text-center mb-12">
