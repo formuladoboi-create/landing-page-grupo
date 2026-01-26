@@ -23,7 +23,7 @@ const WhatIsSection: React.FC = () => {
                             <div className="flex items-start gap-4">
                                 <span className="material-symbols-outlined text-2xl text-primary mt-1">check_circle</span>
                                 <p className="text-lg md:text-xl text-zinc-600 leading-relaxed font-medium">
-                                    Conectamos criadores com compradores co. meljores lotes de nelore PO.
+                                    Conectamos criadores com compradores com os melhores lotes de Nelore PO.
                                 </p>
                             </div>
                             <div className="flex items-start gap-4">
