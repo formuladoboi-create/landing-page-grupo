@@ -6,10 +6,9 @@ export interface ChatMessage {
 export interface FormData {
     nome: string;
     nomeFazenda: string;
-    instagram: string;
     whatsapp: string;
     local: string;
-    interesse: string;
+    momentoPecuaria: string;
     buscaComprar: string;
     quantidadeAnimais: string;
 }

@@ -40,25 +40,24 @@ function doPost(e) {
         }
 
         // Append row with data
-        // Columns: A=Data, B=Hora, C=Nome, D=Celular, E=Instagram, F=Fazenda, G=Estado, H=Cidade, I=Interesse, J=BuscaComprar, K=QtdAnimais, L=Page, M=Source, N=Medium, O=Campaign, P=Content, Q=Term
+        // Columns: A=Data, B=Hora, C=Nome, D=Celular, E=Fazenda, F=Estado, G=Cidade, H=MomentoPecuaria, I=OQueBusca, J=QtdAnimais, K=Page, L=Source, M=Medium, N=Campaign, O=Content, P=Term
         sheet.appendRow([
-            brazilTime,              // A - Data
-            brazilHour,              // B - Hora
-            data.nome,               // C - Nome
-            phone,                   // D - Celular (formatted)
-            data.instagram,          // E - Instagram
-            data.nomeFazenda,        // F - Nome da Fazenda
-            data.estado,             // G - Estado
-            data.cidade,             // H - Cidade
-            data.interesse,          // I - Interesse
-            data.buscaComprar,       // J - O que busca comprar
-            data.quantidadeAnimais,  // K - Quantidade de animais
-            data.page || '',         // L - Page
-            data.source || '',       // M - Source (utm_source)
-            data.medium || '',       // N - Medium (utm_medium)
-            data.campaign || '',     // O - Campaign (utm_campaign)
-            data.content || '',      // P - Content (utm_content)
-            data.term || ''          // Q - Term (utm_term)
+            brazilTime,                  // A - Data
+            brazilHour,                  // B - Hora
+            data.nome,                   // C - Nome
+            phone,                       // D - Celular (formatted)
+            data.nomeFazenda,            // E - Nome da Fazenda
+            data.estado,                 // F - Estado
+            data.cidade,                 // G - Cidade
+            data.momentoPecuaria,        // H - Descreva seu momento na pecuária
+            data.buscaComprar,           // I - O que você busca?
+            data.quantidadeAnimais,      // J - Quantidade de animais
+            data.page || '',             // K - Page
+            data.source || '',           // L - Source (utm_source)
+            data.medium || '',           // M - Medium (utm_medium)
+            data.campaign || '',         // N - Campaign (utm_campaign)
+            data.content || '',          // O - Content (utm_content)
+            data.term || ''              // P - Term (utm_term)
         ]);
 
         return ContentService.createTextOutput(JSON.stringify({

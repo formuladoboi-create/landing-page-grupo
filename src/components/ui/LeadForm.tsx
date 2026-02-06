@@ -9,10 +9,9 @@ const LeadForm: React.FC = () => {
     const [formData, setFormData] = useState<FormData>({
         nome: '',
         nomeFazenda: '',
-        instagram: '',
         whatsapp: '',
         local: '',
-        interesse: 'Selecione uma opção',
+        momentoPecuaria: 'Selecione uma opção',
         buscaComprar: 'Selecione uma opção',
         quantidadeAnimais: 'Selecione uma opção'
     });
@@ -75,11 +74,10 @@ const LeadForm: React.FC = () => {
                 const payload = {
                     nome: formData.nome,
                     whatsapp: formData.whatsapp,
-                    instagram: formData.instagram,
                     nomeFazenda: formData.nomeFazenda,
                     estado: selectedUf,
                     cidade: selectedCity,
-                    interesse: formData.interesse,
+                    momentoPecuaria: formData.momentoPecuaria,
                     buscaComprar: formData.buscaComprar,
                     quantidadeAnimais: formData.quantidadeAnimais,
                     // UTM tracking data
@@ -155,19 +153,7 @@ const LeadForm: React.FC = () => {
                     />
                 </div>
 
-                {/* 3. Instagram (opcional) */}
-                <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Instagram <span className="text-zinc-400">(opcional)</span></label>
-                    <input
-                        value={formData.instagram}
-                        onChange={e => setFormData({ ...formData, instagram: e.target.value })}
-                        className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black placeholder-zinc-400 transition-all text-sm"
-                        placeholder="@seuinstagram"
-                        type="text"
-                    />
-                </div>
-
-                {/* 4. Nome da Fazenda */}
+                {/* 3. Nome da Fazenda */}
                 <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Nome da Fazenda</label>
                     <input
@@ -183,7 +169,7 @@ const LeadForm: React.FC = () => {
                     />
                 </div>
 
-                {/* 5. Estado */}
+                {/* 4. Estado */}
                 <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Estado</label>
                     <select
@@ -199,7 +185,7 @@ const LeadForm: React.FC = () => {
                     </select>
                 </div>
 
-                {/* 6. Cidade */}
+                {/* 5. Cidade */}
                 <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Cidade</label>
                     <select
@@ -218,26 +204,26 @@ const LeadForm: React.FC = () => {
                     </select>
                 </div>
 
-                {/* 7. Interesse */}
+                {/* 6. Descreva seu momento na pecuária */}
                 <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Interesse</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Descreva seu momento na pecuária</label>
                     <select
                         required
-                        value={formData.interesse}
-                        onChange={e => setFormData({ ...formData, interesse: e.target.value })}
+                        value={formData.momentoPecuaria}
+                        onChange={e => setFormData({ ...formData, momentoPecuaria: e.target.value })}
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black text-sm appearance-none"
                     >
                         <option disabled>Selecione uma opção</option>
-                        <option>Já sou criador renomado, quero comprar ou vender</option>
-                        <option>Já sou criador iniciante, quero comprar e vender</option>
-                        <option>Estou iniciando e quero entender mais sobre gado PO</option>
-                        <option>Crio gado comercial e quero começar no PO</option>
+                        <option>Ainda não tenho nada. Estou avaliando investir na pecuária.</option>
+                        <option>Trabalho com cria e preciso de touros P.O para repasse.</option>
+                        <option>Já crio gado comercial, porém quero começar a criar P.O.</option>
+                        <option>Já crio gado P.O e quero receber oportunidades no setor.</option>
                     </select>
                 </div>
 
-                {/* 8. O que busca comprar */}
+                {/* 7. O que você busca? */}
                 <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">O que você busca comprar?</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">O que você busca?</label>
                     <select
                         required
                         value={formData.buscaComprar}
@@ -245,14 +231,15 @@ const LeadForm: React.FC = () => {
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black text-sm appearance-none"
                     >
                         <option disabled>Selecione uma opção</option>
+                        <option>Ainda não sei</option>
+                        <option>Touros P.O para repasse</option>
+                        <option>Matrizes P.O</option>
                         <option>Embriões</option>
                         <option>Sêmen</option>
-                        <option>Touro</option>
-                        <option>Matrizes</option>
                     </select>
                 </div>
 
-                {/* 9. Quantidade de animais */}
+                {/* 8. Quantidade de animais */}
                 <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Quantidade de animais na fazenda</label>
                     <select
@@ -262,6 +249,7 @@ const LeadForm: React.FC = () => {
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 md:py-4 px-5 focus:ring-primary focus:border-primary text-black text-sm appearance-none"
                     >
                         <option disabled>Selecione uma opção</option>
+                        <option>Nenhum</option>
                         <option>0 a 100</option>
                         <option>100 a 300</option>
                         <option>300 a 500</option>
