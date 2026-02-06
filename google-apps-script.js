@@ -28,36 +28,34 @@ function doPost(e) {
 
         const data = JSON.parse(e.postData.contents);
 
-        // Get current date and time in Brazil timezone
         const now = new Date();
         const brazilTime = Utilities.formatDate(now, "America/Sao_Paulo", "dd/MM/yyyy");
         const brazilHour = Utilities.formatDate(now, "America/Sao_Paulo", "HH:mm");
 
-        // Format phone: remove special chars, add 55 prefix
-        let phone = data.whatsapp.replace(/\D/g, ''); // Remove non-digits
+        let phone = data.whatsapp.replace(/\D/g, '');
         if (!phone.startsWith('55')) {
             phone = '55' + phone;
         }
 
-        // Append row with data
-        // Columns: A=Data, B=Hora, C=Nome, D=Celular, E=Fazenda, F=Estado, G=Cidade, H=MomentoPecuaria, I=OQueBusca, J=QtdAnimais, K=Page, L=Source, M=Medium, N=Campaign, O=Content, P=Term
+        // A=Data, B=Hora, C=Nome, D=Celular, E=Instagram(vazio), F=Fazenda, G=Estado, H=Cidade, I=MomentoPecuaria, J=OQueBusca, K=QtdAnimais, L=Page, M=Source, N=Medium, O=Campaign, P=Content, Q=Term
         sheet.appendRow([
             brazilTime,                  // A - Data
             brazilHour,                  // B - Hora
-            data.nome,                   // C - Nome
-            phone,                       // D - Celular (formatted)
-            data.nomeFazenda,            // E - Nome da Fazenda
-            data.estado,                 // F - Estado
-            data.cidade,                 // G - Cidade
-            data.momentoPecuaria,        // H - Descreva seu momento na pecuária
-            data.buscaComprar,           // I - O que você busca?
-            data.quantidadeAnimais,      // J - Quantidade de animais
-            data.page || '',             // K - Page
-            data.source || '',           // L - Source (utm_source)
-            data.medium || '',           // M - Medium (utm_medium)
-            data.campaign || '',         // N - Campaign (utm_campaign)
-            data.content || '',          // O - Content (utm_content)
-            data.term || ''              // P - Term (utm_term)
+            data.nome,                   // C - Nome Completo
+            phone,                       // D - Celular
+            '',                          // E - Instagram (vazio)
+            data.nomeFazenda,            // F - Nome da Fazenda
+            data.estado,                 // G - Estado
+            data.cidade,                 // H - Cidade
+            data.momentoPecuaria,        // I - Momento Pecuária
+            data.buscaComprar,           // J - O que você busca
+            data.quantidadeAnimais,      // K - Quantidade de animais
+            data.page || '',             // L - Page
+            data.source || '',           // M - Source
+            data.medium || '',           // N - Medium
+            data.campaign || '',         // O - Campaign
+            data.content || '',          // P - Content
+            data.term || ''              // Q - Term
         ]);
 
         return ContentService.createTextOutput(JSON.stringify({
@@ -73,7 +71,6 @@ function doPost(e) {
     }
 }
 
-// Handle CORS preflight
 function doGet(e) {
     return ContentService.createTextOutput(JSON.stringify({
         success: true,
